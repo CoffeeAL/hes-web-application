@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+<div class="container">
+<form th:action="@{/list}" th:method="get">
+    <div th:each="userAccount: ${allUserAccounts}">
+        <span th:text="${userAccount.username()}">Username</span>
+    </div>
+</form>
+</div>
+</body>
+</html>
+
+<!--<div class="container">-->
+<!--    <form th:action="@{/account}" th:method="post" th:object="${account}">-->
+<!--        <label for="accountNumber">Number:-->
+<!--            <input id="accountNumber" th:type="text" th:field="*{number}">-->
+<!--        </label><br>-->
+<!--        <label for="accountActive">Active:-->
+<!--            <input id="accountActive" type="checkbox" th:field="*{active}">-->
+<!--        </label><br>-->
+<!--        <div th:each="currentType: ${allAccountTypes}">-->
+<!--            <input type="checkbox" th:value="${currentType}" th:field="*{types}">-->
+<!--            <span th:text="${currentType.name()}">Current type</span>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <select id="mainType" th:field="*{main}">-->
+<!--            <option th:each="currentType: ${allAccountTypes}"-->
+<!--                    th:value="${currentType}"-->
+<!--                    th:text="${#strings.capitalize(#strings.toLowerCase(currentType))}">Current type-->
+<!--            </option>-->
+<!--        </select>-->
+<!--        <input type="submit" th:value="Save">-->
+<!--    </form>-->
+<!--</div>-->
+<!--<span th:text="${account.number}">Account number</span>-->
+<!--<div th:each="type: ${account.types}">-->
+<!--<span th:text="${type}">Account type</span>-->
+<!--</div>-->
+<!--<input type="checkbox" th:value="${account.active}" th:checked="${account.active}">-->
